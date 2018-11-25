@@ -10,12 +10,5 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post("/register", (req, res) => {
-  console.log("Server hit on /register");
-  res.send({
-    message: "Your user was register.. Have fun",
-    email: req.body.email
-  });
-});
-
-app.listen(process.env.PORT || 7070);
+require("./routes")(app);
+require("./Schema/index")(app);
